@@ -1,8 +1,8 @@
 /* --- Base Styles & Reset --- */
 :root {
-    --primary-color: #007BFF; /* A vibrant tech blue */
-    --secondary-color: #343a40; /* Dark, professional background */
-    --accent-color: #28a745; /* Green for CTAs */
+    --primary-color: #007BFF; 
+    --secondary-color: #343a40; 
+    --accent-color: #28a745; 
     --light-text: #f8f9fa;
     --dark-text: #212529;
     --card-bg: #ffffff;
@@ -19,7 +19,7 @@ body {
     font-family: var(--font-family);
     line-height: 1.6;
     color: var(--dark-text);
-    background-color: var(--light-text);
+    background-color: #ffffff;
 }
 
 .container {
@@ -52,8 +52,10 @@ header .container {
 }
 
 nav ul {
-    list-style: none;
+    list-style: none; /* Removes bullets from nav menu */
     display: flex;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li a {
@@ -69,8 +71,8 @@ nav ul li a:hover {
 
 /* --- Hero Section --- */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('placeholder-bg.jpg') center/cover;
-    /* You MUST replace 'placeholder-bg.jpg' with a high-res image of data, tech, or a lab */
+    /* Replace 'placeholder-bg.jpg' with your real image URL */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
     color: var(--light-text);
     text-align: center;
     padding: 10rem 0;
@@ -84,7 +86,7 @@ nav ul li a:hover {
 .hero p {
     font-size: 1.25rem;
     margin-bottom: 2rem;
-    max-width: 600px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -93,11 +95,14 @@ nav ul li a:hover {
     display: inline-block;
     background: var(--accent-color);
     color: white;
-    padding: 0.75rem 2rem;
+    padding: 0.85rem 2.5rem;
     text-decoration: none;
     border-radius: 5px;
     font-weight: 700;
     transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
 }
 
 .cta-button:hover {
@@ -106,12 +111,12 @@ nav ul li a:hover {
 
 /* --- Content Sections --- */
 .content-section {
-    padding: 4rem 0;
+    padding: 5rem 0;
     text-align: center;
 }
 
 .secondary-bg {
-    background-color: #e9ecef; /* Light gray background for contrast */
+    background-color: #f1f3f5; 
 }
 
 .content-section h3 {
@@ -124,52 +129,90 @@ nav ul li a:hover {
     font-size: 1.1rem;
     margin-bottom: 3rem;
     color: #6c757d;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Service Grid (Consulting) */
+/* --- Cards & Grid Layout --- */
 .service-grid, .media-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    text-align: left;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    text-align: left; /* Aligns text left inside cards for professional look */
 }
 
 .service-card, .media-card {
     background: var(--card-bg);
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 4px solid var(--primary-color); /* Adds a pro touch */
 }
 
 .service-card:hover, .media-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
 }
 
 .service-card h4, .media-card h4 {
-    color: var(--primary-color);
-    margin-bottom: 0.75rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
     font-size: 1.4rem;
+    font-weight: 700;
+}
+
+/* LIST STYLING FIX */
+.service-card ul, .mission-points ul {
+    list-style-type: disc; /* Ensures bullets appear */
+    padding-left: 1.5rem; /* Indents bullets so they aren't cut off */
+    margin-top: 1rem;
+    color: #495057;
+}
+
+.service-card li, .mission-points li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.mission-points {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.media-focus {
+    background: #e9ecef;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin: 1rem 0;
+    color: #495057;
 }
 
 .media-card a {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: 700;
-    margin-top: 1rem;
     display: inline-block;
+    margin-top: 0.5rem;
 }
 
-/* Contact Form */
+/* --- Contact Form --- */
 #contact form {
     max-width: 600px;
     margin: 0 auto;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 15px;
 }
 
-#contact input, #contact textarea {
+#contact input, #contact textarea, #contact select {
     width: 100%;
     padding: 1rem;
     border: 1px solid #ced4da;
@@ -188,21 +231,21 @@ footer {
     background: var(--secondary-color);
     color: var(--light-text);
     text-align: center;
-    padding: 1.5rem 0;
+    padding: 2rem 0;
+    font-size: 0.9rem;
 }
 
-/* --- Responsive Adjustments --- */
+/* --- Responsive --- */
 @media (max-width: 768px) {
     header .container {
         flex-direction: column;
+        gap: 1rem;
     }
     nav ul {
-        margin-top: 0.5rem;
-    }
-    nav ul li a {
-        padding: 0.25rem 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     .hero h2 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 }
