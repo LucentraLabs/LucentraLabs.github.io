@@ -3,61 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucentra Labs</title>
-    <style>
-        /* This section creates the look and feel (CSS) */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-
-        .container {
-            background: white;
-            padding: 2rem 4rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-        }
-
-        p {
-            font-size: 1.2rem;
-            color: #666;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #0969da;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        .btn:hover {
-            background-color: #074fa3;
-        }
-    </style>
+    <title>Lucentra Labs - Data, Tech, & Digital Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="container">
-        <h1>Welcome to Lucentra Labs</h1>
-        <p>We're under construction. Please check back for an update soon.</p>
-    </div>
+    <header>
+        <div class="container">
+            <h1 class="logo">Lucentra Labs</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#consulting">Consulting</a></li>
+                    <li><a href="#media">Media</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>The Nexus of Technology & Digital Content</h2>
+            <p>Providing expert Data Engineering and IT consulting while building an engaging digital community across Tech, Gaming, and Travel.</p>
+            <a href="#consulting" class="cta-button">Explore Services</a>
+        </div>
+    </section>
+
+    <section id="consulting" class="content-section">
+        <div class="container">
+            <h3>Core Consulting Services</h3>
+            <p class="section-description">Lucentra Labs delivers high-impact professional consulting in the IT, Computer Science, and Data Engineering domains.</p>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h4>Data Engineering</h4>
+                    <p>Building scalable pipelines, data warehouses, and robust ETL solutions.</p>
+                </div>
+                <div class="service-card">
+                    <h4>IT Strategy</h4>
+                    <p>Technology roadmap development, cloud migration, and infrastructure optimization.</p>
+                </div>
+                <div class="service-card">
+                    <h4>Custom Software</h4>
+                    <p>Bespoke application development and systems integration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="media" class="content-section secondary-bg">
+        <div class="container">
+            <h3>Lucentra Digital Media</h3>
+            <p class="section-description">Connecting with the community through engaging video content and live streams.</p>
+            <div class="media-grid">
+                <div class="media-card">
+                    <h4>Lucentra Stream</h4>
+                    <p>Live gaming, community interaction, and unique stream content on YouTube/Twitch.</p>
+                    <a href="[Your Stream Link]" target="_blank">Watch Now &rarr;</a>
+                </div>
+                <div class="media-card">
+                    <h4>Lucentra Tech</h4>
+                    <p>In-depth technical reviews, tutorials (Software/Hardware), and insightful analysis.</p>
+                    <a href="[Your Tech Link]" target="_blank">View Channel &rarr;</a>
+                </div>
+                <div class="media-card">
+                    <h4>Lucentra Travel</h4>
+                    <p>Capturing the world through travel vlogs, video series, and destination guides.</p>
+                    <a href="[Your Travel Link]" target="_blank">See Vlogs &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="content-section">
+        <div class="container">
+            <h3>Get In Touch</h3>
+            <p>Ready to discuss your next project or just want to say hello? Contact us today.</p>
+            <form action="[Your Form Submission Endpoint]" method="POST">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message or Project Details"></textarea>
+                <button type="submit" class="cta-button">Send Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Lucentra Labs. All rights reserved.</p>
+            </div>
+    </footer>
 
 </body>
 </html>
