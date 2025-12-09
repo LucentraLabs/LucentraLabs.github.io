@@ -1,15 +1,11 @@
-/* --- Base Styles & Reset --- */
+/* --- 1. Variables & Reset --- */
 :root {
-    /* PROFESSIONAL COLOR PALETTE */
     --brand-dark: #0f172a;    /* Deep Navy */
     --brand-light: #1e293b;   /* Slate */
     --brand-accent: #0ea5e9;  /* Electric Blue */
-    --text-main: #334155;     /* Dark Grey for readability */
-    --text-light: #f8fafc;    /* White text */
-    --bg-grey: #f1f5f9;       /* Light grey background */
-    
-    --font-heading: 'Montserrat', sans-serif;
-    --font-body: 'Roboto', sans-serif;
+    --text-main: #334155;     /* Dark Grey */
+    --text-white: #ffffff;
+    --bg-grey: #f8fafc;
 }
 
 * {
@@ -19,14 +15,14 @@
 }
 
 body {
-    font-family: var(--font-body);
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: var(--text-main);
     background-color: #ffffff;
 }
 
 h1, h2, h3, h4 {
-    font-family: var(--font-heading);
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
 }
 
@@ -36,15 +32,14 @@ h1, h2, h3, h4 {
     margin: 0 auto;
 }
 
-/* --- Header --- */
+/* --- 2. Header --- */
 header {
     background: var(--brand-dark);
-    color: white;
     padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 header .container {
@@ -54,6 +49,7 @@ header .container {
 }
 
 .logo {
+    color: white;
     font-size: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -66,7 +62,7 @@ nav ul {
 }
 
 nav ul li a {
-    color: #cbd5e1;
+    color: #cbd5e1; /* Light grey/blue text */
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
@@ -76,10 +72,10 @@ nav ul li a:hover {
     color: var(--brand-accent);
 }
 
-/* --- Hero Section (The Professional Gradient) --- */
+/* --- 3. Hero Section (NO IMAGE - FIXED) --- */
 .hero {
-    /* No Image. Just sleek, professional gradient. */
-    background: linear-gradient(135deg, var(--brand-dark) 0%, #1e3a8a 100%);
+    /* Pure CSS Gradient - No URL() here */
+    background: linear-gradient(135deg, #0f172a 0%, #172554 100%);
     color: white;
     text-align: center;
     padding: 8rem 0;
@@ -88,7 +84,7 @@ nav ul li a:hover {
 .hero h2 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    line-height: 1.2;
+    color: white;
 }
 
 .hero p {
@@ -102,46 +98,50 @@ nav ul li a:hover {
 
 .hero-buttons {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
-/* --- Buttons --- */
+/* --- 4. Button Styles (FIXED) --- */
+
+/* Primary Button (Solid Blue) */
 .cta-button {
     display: inline-block;
-    background: var(--brand-accent);
-    color: white;
+    background-color: var(--brand-accent);
+    color: white !important; /* Force White Text */
     padding: 0.8rem 2rem;
     text-decoration: none;
     border-radius: 4px;
     font-weight: 600;
-    border: none;
-    cursor: pointer;
+    border: 2px solid var(--brand-accent);
     transition: background 0.3s;
 }
 
 .cta-button:hover {
     background-color: #0284c7;
+    border-color: #0284c7;
 }
 
+/* Secondary Button (Outline - Fixed Visibility) */
 .cta-button-outline {
     display: inline-block;
-    background: transparent;
-    color: white;
-    border: 2px solid white;
+    background-color: transparent;
+    color: white !important; /* Force White Text */
+    border: 2px solid white; /* Force White Border */
     padding: 0.8rem 2rem;
     text-decoration: none;
     border-radius: 4px;
     font-weight: 600;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .cta-button-outline:hover {
-    background: white;
-    color: var(--brand-dark);
+    background-color: white;
+    color: var(--brand-dark) !important; /* Dark Text on Hover */
 }
 
-/* --- Content Sections --- */
+/* --- 5. Content Sections --- */
 .content-section {
     padding: 5rem 0;
 }
@@ -165,7 +165,7 @@ nav ul li a:hover {
     font-size: 1.1rem;
 }
 
-/* --- Grids (Services & Media) --- */
+/* --- 6. Cards & Grids --- */
 .service-grid, .media-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -183,6 +183,7 @@ nav ul li a:hover {
 
 .service-card:hover, .media-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
 }
 
 .service-card h4, .media-card h4 {
@@ -191,9 +192,9 @@ nav ul li a:hover {
     font-size: 1.3rem;
 }
 
-/* --- List Styling (Fixing the Bullet Points) --- */
+/* --- 7. List & Bullet Fixes --- */
 .service-card ul, .mission-points ul {
-    list-style: none; /* Reset default style */
+    list-style: none; 
     padding: 0;
     margin-top: 1rem;
 }
@@ -206,14 +207,14 @@ nav ul li a:hover {
     color: var(--text-main);
 }
 
-/* Custom CSS square bullet point */
+/* Square Bullet styling */
 .service-card li::before, .mission-points li::before {
     content: "■";
     color: var(--brand-accent);
     position: absolute;
     left: 0;
-    top: 2px;
-    font-size: 0.7rem;
+    top: 4px; /* Adjusted alignment */
+    font-size: 0.6rem;
 }
 
 .mission-points {
@@ -225,7 +226,7 @@ nav ul li a:hover {
     margin: 0 auto;
 }
 
-/* --- Media Section Specifics --- */
+/* --- 8. Media & Contact --- */
 .media-focus {
     background: #f0f9ff;
     padding: 0.8rem;
@@ -243,7 +244,6 @@ nav ul li a:hover {
     font-size: 0.9rem;
 }
 
-/* --- Contact Form --- */
 #contact form {
     max-width: 600px;
     margin: 0 auto;
@@ -257,7 +257,7 @@ nav ul li a:hover {
     border: 1px solid #cbd5e1;
     border-radius: 4px;
     font-size: 1rem;
-    font-family: var(--font-body);
+    font-family: 'Roboto', sans-serif;
 }
 
 #contact textarea {
@@ -265,7 +265,7 @@ nav ul li a:hover {
     resize: vertical;
 }
 
-/* --- Footer --- */
+/* --- 9. Footer --- */
 footer {
     background: var(--brand-dark);
     color: #94a3b8;
@@ -274,7 +274,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/* --- Responsive --- */
+/* --- 10. Mobile Responsiveness --- */
 @media (max-width: 768px) {
     header .container {
         flex-direction: column;
@@ -282,5 +282,15 @@ footer {
     }
     .hero h2 {
         font-size: 2.2rem;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    .cta-button, .cta-button-outline {
+        width: 100%;
+        text-align: center;
+        max-width: 300px;
     }
 }
