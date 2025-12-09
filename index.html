@@ -3,152 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucentra Labs - Professional IT & Data Consulting</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Lucentra Labs</title>
+    <style>
+        /* This section creates the look and feel (CSS) */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem 4rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0969da;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #074fa3;
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <h1 class="logo">Lucentra Labs</h1>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#consulting">Consulting</a></li>
-                    <li><a href="#media">Media</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section id="home" class="hero">
-        <div class="container">
-            <h2>The Nexus of Technology & Digital Content</h2>
-            <p>Providing expert Data Engineering, IT, and Computer Science consulting while building an authentic and engaging digital community.</p>
-            
-            <div class="hero-buttons">
-                <a href="#consulting" class="cta-button">Professional Services</a>
-                <a href="#media" class="cta-button-outline">Digital Media</a>
-            </div>
-        </div>
-    </section>
-    
-    <section id="about" class="content-section">
-        <div class="container">
-            <h3>Our Mission: Empowering Tomorrow</h3>
-            <p class="section-description">
-                Lucentra Labs is dedicated to solving complex technological challenges for businesses and sharing real-world insights with a global audience.
-            </p>
-            <div class="mission-points">
-                <ul>
-                    <li><strong>Innovation:</strong> Driving modern architectures and leveraging the latest in AI and Cloud technology.</li>
-                    <li><strong>Integrity:</strong> Delivering honest, transparent, and results-driven professional services.</li>
-                    <li><strong>Connection:</strong> Building a vibrant, knowledgeable community through our digital platforms.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="consulting" class="content-section secondary-bg">
-        <div class="container">
-            <h3>Professional Consulting Services</h3>
-            <p class="section-description">
-                We deliver high-impact solutions across the entire data lifecycle and IT infrastructure.
-            </p>
-            <div class="service-grid">
-                
-                <div class="service-card">
-                    <h4>Data Engineering & Architecture</h4>
-                    <p>Unlock the value of your data with robust, modern pipelines.</p>
-                    <ul>
-                        <li>Cloud Data Warehouse implementation (Snowflake, BigQuery)</li>
-                        <li>ETL/ELT pipeline development and optimization</li>
-                        <li>Real-time streaming solutions (Kafka, Kinesis)</li>
-                        <li>Data Governance and Quality frameworks</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <h4>Cloud & Infrastructure</h4>
-                    <p>Strategic guidance to leverage scalable, secure cloud environments.</p>
-                    <ul>
-                        <li>Cloud Migration Strategy (AWS, Azure, GCP)</li>
-                        <li>DevOps Implementation & Automation (CI/CD)</li>
-                        <li>System architecture review and performance tuning</li>
-                        <li>Cost optimization and resource management</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <h4>Custom Software Development</h4>
-                    <p>Building bespoke software solutions tailored to complex business needs.</p>
-                    <ul>
-                        <li>High-performance computing and algorithm development</li>
-                        <li>API design and microservices architecture</li>
-                        <li>Code review, refactoring, and technical debt analysis</li>
-                        <li>Emerging technology integration (MLOps readiness)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="media" class="content-section">
-        <div class="container">
-            <h3>Lucentra Digital Media</h3>
-            <p class="section-description">
-                Sharing passion and expertise globally through dedicated content platforms.
-            </p>
-            <div class="media-grid">
-                <div class="media-card">
-                    <h4>📺 Lucentra Stream</h4>
-                    <p>Our dedicated channel for live entertainment and deep-dive gaming sessions.</p>
-                    <p class="media-focus"><strong>Focus:</strong> Live content, gaming, audience interaction.</p>
-                    <a href="#" class="text-link">Join the Stream &rarr;</a>
-                </div>
-
-                <div class="media-card">
-                    <h4>🔬 Lucentra Tech</h4>
-                    <p>High-quality technical video production covering software and hardware.</p>
-                    <p class="media-focus"><strong>Focus:</strong> Software tutorials, hardware reviews, IT analysis.</p>
-                    <a href="#" class="text-link">View Tech Videos &rarr;</a>
-                </div>
-
-                <div class="media-card">
-                    <h4>🗺️ Lucentra Travel</h4>
-                    <p>Capturing the world through cinematic travel vlogs.</p>
-                    <p class="media-focus"><strong>Focus:</strong> Travel vlogs, guides, cultural experiences.</p>
-                    <a href="#" class="text-link">See Travel Vlogs &rarr;</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="content-section secondary-bg">
-        <div class="container">
-            <h3>Let's Collaborate</h3>
-            <p class="section-description">Ready to discuss your technology project?</p>
-            <form action="#" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Work Email" required>
-                <select name="service_type" required>
-                    <option value="">-- I am interested in --</option>
-                    <option value="consulting">Professional Consulting Services</option>
-                    <option value="media_sponsorship">Media Sponsorship / Collaboration</option>
-                    <option value="general">General Inquiry</option>
-                </select>
-                <textarea name="message" placeholder="Please describe your project or inquiry..."></textarea>
-                <button type="submit" class="cta-button">Send Inquiry</button>
-            </form>
-        </div>
-    </section>
-
+    <div class="container">
+        <h1>Welcome to Lucentra Labs</h1>
+        <p>We're under construction. Please check back for an update soon.</p>
+    </div>
     <footer>
         <div class="container">
             <p>&copy; 2025 Lucentra Labs. All rights reserved.</p>
-        </div>
+            </div>
     </footer>
 
 </body>
