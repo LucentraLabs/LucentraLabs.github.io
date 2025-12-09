@@ -1,21 +1,15 @@
 /* --- Base Styles & Reset --- */
 :root {
-    /* New Professional Palette */
-    --primary-brand: #0f172a;   /* Deep Slate/Black-Blue (Premium Tech) */
-    --secondary-brand: #1e293b; /* Slightly lighter slate for contrast */
-    --highlight: #0ea5e9;       /* Electric Sky Blue for links/accents */
-    --action-color: #0284c7;    /* Strong Blue for Buttons */
-    --action-hover: #0369a1;    /* Darker Blue for Button Hover */
-    
-    --text-main: #334155;       /* Slate 600 - Softer than black, very readable */
-    --text-light: #f8fafc;      /* Off-white for dark backgrounds */
-    --text-muted: #64748b;      /* Muted gray for descriptions */
-    
-    --bg-light: #ffffff;
-    --bg-off-white: #f1f5f9;    /* Very light gray for alternate sections */
+    /* PROFESSIONAL COLOR PALETTE */
+    --brand-dark: #0f172a;    /* Deep Navy */
+    --brand-light: #1e293b;   /* Slate */
+    --brand-accent: #0ea5e9;  /* Electric Blue */
+    --text-main: #334155;     /* Dark Grey for readability */
+    --text-light: #f8fafc;    /* White text */
+    --bg-grey: #f1f5f9;       /* Light grey background */
     
     --font-heading: 'Montserrat', sans-serif;
-    --font-body: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Clean system fonts for body */
+    --font-body: 'Roboto', sans-serif;
 }
 
 * {
@@ -26,33 +20,31 @@
 
 body {
     font-family: var(--font-body);
-    line-height: 1.7; /* Increased line-height for elegance */
+    line-height: 1.6;
     color: var(--text-main);
-    background-color: var(--bg-light);
+    background-color: #ffffff;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4 {
     font-family: var(--font-heading);
     font-weight: 700;
-    line-height: 1.2;
 }
 
 .container {
     width: 90%;
-    max-width: 1100px; /* Slightly tighter width for better readability */
+    max-width: 1100px;
     margin: 0 auto;
 }
 
-/* --- Header & Navigation --- */
+/* --- Header --- */
 header {
-    background: var(--primary-brand);
-    color: var(--text-light);
-    padding: 1.2rem 0;
+    background: var(--brand-dark);
+    color: white;
+    padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    border-bottom: 3px solid var(--highlight); /* Tech accent line */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 header .container {
@@ -63,258 +55,232 @@ header .container {
 
 .logo {
     font-size: 1.5rem;
-    letter-spacing: -0.5px;
-    color: white;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 nav ul {
-    list-style: none;
     display: flex;
+    list-style: none;
     gap: 20px;
 }
 
 nav ul li a {
-    color: #cbd5e1; /* Light slate */
+    color: #cbd5e1;
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.95rem;
     transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: var(--highlight);
+    color: var(--brand-accent);
 }
 
-/* --- Hero Section (NO IMAGE - CSS Gradient Only) --- */
+/* --- Hero Section (The Professional Gradient) --- */
 .hero {
-    /* Deep professional gradient - looks like high-end software */
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-    color: var(--text-light);
+    /* No Image. Just sleek, professional gradient. */
+    background: linear-gradient(135deg, var(--brand-dark) 0%, #1e3a8a 100%);
+    color: white;
     text-align: center;
-    padding: 8rem 0 6rem 0;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Optional: Adds a subtle glowing effect behind the text */
-.hero::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
-    pointer-events: none;
+    padding: 8rem 0;
 }
 
 .hero h2 {
     font-size: 3rem;
-    margin-bottom: 1.5rem;
-    letter-spacing: -1px;
+    margin-bottom: 1rem;
+    line-height: 1.2;
 }
 
 .hero p {
     font-size: 1.25rem;
     margin-bottom: 2.5rem;
-    max-width: 750px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    color: #cbd5e1; /* Softer white for subtext */
-    font-weight: 300;
+    color: #e2e8f0;
 }
 
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* --- Buttons --- */
 .cta-button {
     display: inline-block;
-    background: var(--highlight);
-    color: #fff;
-    padding: 1rem 2.5rem;
+    background: var(--brand-accent);
+    color: white;
+    padding: 0.8rem 2rem;
     text-decoration: none;
-    border-radius: 50px; /* Pill shape is more modern */
+    border-radius: 4px;
     font-weight: 600;
-    transition: all 0.3s ease;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3); /* Glowing shadow */
+    transition: background 0.3s;
 }
 
 .cta-button:hover {
-    background-color: var(--action-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5);
+    background-color: #0284c7;
+}
+
+.cta-button-outline {
+    display: inline-block;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.cta-button-outline:hover {
+    background: white;
+    color: var(--brand-dark);
 }
 
 /* --- Content Sections --- */
 .content-section {
-    padding: 6rem 0;
+    padding: 5rem 0;
 }
 
 .secondary-bg {
-    background-color: var(--bg-off-white);
-    border-top: 1px solid #e2e8f0;
-    border-bottom: 1px solid #e2e8f0;
+    background-color: var(--bg-grey);
 }
 
 .content-section h3 {
-    font-size: 2.2rem;
-    color: var(--primary-brand);
-    margin-bottom: 1rem;
     text-align: center;
+    font-size: 2.2rem;
+    color: var(--brand-dark);
+    margin-bottom: 1rem;
 }
 
 .section-description {
-    font-size: 1.1rem;
-    margin-bottom: 4rem;
-    color: var(--text-muted);
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
     text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    color: #64748b;
+    font-size: 1.1rem;
 }
 
-/* --- Card Grid Design --- */
+/* --- Grids (Services & Media) --- */
 .service-grid, .media-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
 .service-card, .media-card {
     background: white;
-    padding: 2.5rem;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0; /* Subtle border instead of heavy shadow */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    position: relative;
-    top: 0;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--brand-accent);
+    transition: transform 0.3s;
 }
 
 .service-card:hover, .media-card:hover {
-    top: -5px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    border-color: var(--highlight); /* Blue border on hover */
+    transform: translateY(-5px);
 }
 
 .service-card h4, .media-card h4 {
-    color: var(--primary-brand);
+    color: var(--brand-dark);
     margin-bottom: 1rem;
-    font-size: 1.35rem;
+    font-size: 1.3rem;
 }
 
-/* Updated List Styling for Professional Look */
+/* --- List Styling (Fixing the Bullet Points) --- */
 .service-card ul, .mission-points ul {
-    list-style: none; /* Turn off default bullets */
-    padding-left: 0;
+    list-style: none; /* Reset default style */
+    padding: 0;
     margin-top: 1rem;
 }
 
 .service-card li, .mission-points li {
     margin-bottom: 0.8rem;
     font-size: 0.95rem;
-    color: var(--text-main);
     padding-left: 1.5rem;
     position: relative;
+    color: var(--text-main);
 }
 
-/* Custom CSS Bullet Points (Blue Squares) */
+/* Custom CSS square bullet point */
 .service-card li::before, .mission-points li::before {
-    content: "■"; 
-    color: var(--highlight);
+    content: "■";
+    color: var(--brand-accent);
     position: absolute;
     left: 0;
-    top: -2px;
-    font-size: 0.8rem;
+    top: 2px;
+    font-size: 0.7rem;
 }
 
-.media-focus {
-    background: #f0f9ff; /* Very light blue bg */
-    border-left: 4px solid var(--highlight);
-    padding: 1rem;
-    border-radius: 0 4px 4px 0;
-    font-size: 0.9rem;
-    margin: 1.5rem 0;
-    color: var(--secondary-brand);
-}
-
-.media-card a {
-    color: var(--action-color);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.media-card a:hover {
-    text-decoration: underline;
-}
-
-/* Mission Points Special Styling */
 .mission-points {
     background: white;
     padding: 2rem;
-    border-radius: 12px;
-    border-left: 5px solid var(--primary-brand);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     max-width: 800px;
     margin: 0 auto;
 }
 
+/* --- Media Section Specifics --- */
+.media-focus {
+    background: #f0f9ff;
+    padding: 0.8rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin: 1rem 0;
+    color: #334155;
+}
+
+.text-link {
+    color: var(--brand-accent);
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
 /* --- Contact Form --- */
 #contact form {
-    background: white;
-    padding: 3rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    max-width: 700px;
+    max-width: 600px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
-#contact input, #contact textarea, #contact select {
-    width: 100%;
+#contact input, #contact select, #contact textarea {
     padding: 1rem;
-    border: 2px solid #e2e8f0;
-    border-radius: 8px;
-    font-family: var(--font-body);
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
     font-size: 1rem;
-    transition: border-color 0.3s;
-    background: #f8fafc;
+    font-family: var(--font-body);
 }
 
-#contact input:focus, #contact textarea:focus, #contact select:focus {
-    outline: none;
-    border-color: var(--highlight);
-    background: white;
+#contact textarea {
+    min-height: 150px;
+    resize: vertical;
 }
 
 /* --- Footer --- */
 footer {
-    background: var(--primary-brand);
+    background: var(--brand-dark);
     color: #94a3b8;
     text-align: center;
-    padding: 3rem 0;
+    padding: 2rem 0;
     font-size: 0.9rem;
-    border-top: 5px solid var(--secondary-brand);
 }
 
-/* --- Responsive Adjustments --- */
+/* --- Responsive --- */
 @media (max-width: 768px) {
     header .container {
         flex-direction: column;
-        gap: 15px;
-    }
-    .hero {
-        padding: 5rem 0;
+        gap: 1rem;
     }
     .hero h2 {
         font-size: 2.2rem;
-    }
-    #contact form {
-        padding: 1.5rem;
     }
 }
