@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucentra Labs | Enterprise Data, Cloud & AI Engineering</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
     <style>
         :root {
@@ -14,85 +16,66 @@
             --text-main: #f8fafc;
             --text-muted: #cbd5e1;
             
-            /* Glassmorphism Variables */
-            --glass-bg: rgba(10, 15, 30, 0.3);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --glass-highlight: rgba(255, 255, 255, 0.2);
-            --glass-blur: 30px;
+            /* REDUCED Glassmorphism Variables */
+            --glass-bg: rgba(10, 15, 30, 0.15); /* Was 0.3 - Now much lighter */
+            --glass-border: rgba(255, 255, 255, 0.05); /* Very subtle border */
+            --glass-highlight: rgba(255, 255, 255, 0.08);
+            --glass-blur: 12px; /* Reduced from 30px for a sharper look */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; color: var(--text-main); overflow-x: hidden; line-height: 1.6; background-color: #03060d; }
 
-        /* --- HYPER-MODERN FLUID AURORA BACKGROUND --- */
-        .aurora-container {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
-            background: #03060d; overflow: hidden;
+        /* Deep Gradient Base & Particle Container */
+        .ambient-base {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -3;
+            background: radial-gradient(circle at 50% 50%, #0a1128 0%, #03060d 100%);
         }
-        
-        /* The glowing moving orbs */
-        .orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.6; animation: float 20s infinite ease-in-out alternate; }
-        .orb-1 { width: 50vw; height: 50vw; background: #00f2fe; top: -10%; left: -10%; animation-delay: 0s; }
-        .orb-2 { width: 60vw; height: 60vw; background: #8a2be2; bottom: -20%; right: -10%; animation-delay: -5s; }
-        .orb-3 { width: 45vw; height: 45vw; background: #4facfe; top: 30%; left: 40%; animation-delay: -10s; }
-
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(5vw, 10vh) scale(1.1); }
-            100% { transform: translate(-10vw, -5vh) scale(0.9); }
-        }
-
-        /* Cinematic noise overlay for premium texture */
-        .noise-overlay {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
-            background: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');
-            opacity: 0.05; pointer-events: none;
-        }
+        #tsparticles { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; pointer-events: none; }
 
         h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: -0.5px; }
         a { text-decoration: none; color: inherit; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
         /* Scroll Reveal Animation */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Header - Frosted Glass */
+        /* Header - Lighter Glass */
         header { 
             position: fixed; top: 0; left: 0; width: 100%; padding: 20px 0; z-index: 100;
-            background: rgba(3, 6, 13, 0.4); 
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            background: rgba(3, 6, 13, 0.2); 
+            backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur));
             border-bottom: 1px solid var(--glass-border); 
         }
         header .container { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 24px; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         nav ul { list-style: none; display: flex; gap: 30px; }
         nav ul li a { font-size: 14px; font-weight: 500; transition: color 0.3s; }
-        nav ul li a:hover { color: var(--primary); text-shadow: 0 0 10px rgba(0,242,254,0.5); }
+        nav ul li a:hover { color: var(--primary); text-shadow: 0 0 10px rgba(0,242,254,0.3); }
 
         /* Hero */
         .hero { min-height: 100vh; display: flex; align-items: center; text-align: center; padding-top: 80px; position: relative; }
-        .hero h2 { font-size: 4.8rem; line-height: 1.1; margin-bottom: 25px; text-shadow: 0 10px 40px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 750px; margin: 0 auto 40px; font-weight: 300; text-shadow: 0 5px 20px rgba(0,0,0,0.5); }
+        .hero h2 { font-size: 4.8rem; line-height: 1.1; margin-bottom: 25px; text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 750px; margin: 0 auto 40px; font-weight: 300; }
         
         .hero-buttons { display: flex; gap: 20px; justify-content: center; }
         
-        /* Glass Buttons */
+        /* Premium Buttons */
         .cta-button { 
-            padding: 16px 40px; color: white; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-highlight);
+            padding: 16px 40px; color: #000; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s;
+            background: var(--text-main); border: 1px solid transparent;
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
         }
-        .cta-button:hover { transform: translateY(-3px); background: white; color: #000; box-shadow: 0 10px 40px rgba(255, 255, 255, 0.4); }
+        .cta-button:hover { transform: translateY(-3px); background: var(--primary); box-shadow: 0 10px 40px rgba(0, 242, 254, 0.4); }
         
         .cta-button-outline { 
             padding: 16px 40px; color: white; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s;
-            background: transparent; border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.02); border: 1px solid var(--glass-highlight);
+            backdrop-filter: blur(5px);
         }
-        .cta-button-outline:hover { background: rgba(255,255,255,0.05); border-color: var(--primary); }
+        .cta-button-outline:hover { background: rgba(255,255,255,0.08); border-color: var(--primary); }
 
         /* Sections */
         .content-section { padding: 120px 0; }
@@ -101,19 +84,18 @@
 
         .service-grid, .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         
-        /* Glassmorphism Cards */
+        /* Lighter Glass Cards */
         .service-card, .media-card { 
             background: var(--glass-bg); 
             backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur));
             border: 1px solid var(--glass-border); 
             border-top: 1px solid var(--glass-highlight); border-left: 1px solid var(--glass-highlight);
-            padding: 50px 40px; border-radius: 24px; transition: all 0.4s ease; 
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            padding: 50px 40px; border-radius: 16px; transition: all 0.4s ease; 
         }
         .service-card:hover, .media-card:hover { 
-            transform: translateY(-10px); 
-            background: rgba(255, 255, 255, 0.05); 
-            border-color: rgba(255, 255, 255, 0.3); 
+            transform: translateY(-8px); 
+            background: rgba(255, 255, 255, 0.04); 
+            border-color: rgba(0, 242, 254, 0.2); 
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); 
         }
         .service-card h4, .media-card h4 { font-size: 1.4rem; margin-bottom: 15px; color: white; }
@@ -122,46 +104,45 @@
         .service-card ul li { margin-bottom: 12px; font-size: 0.95rem; position: relative; padding-left: 24px; color: #e2e8f0; }
         .service-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
 
-        /* Contact Form - Glass Effect */
+        /* Contact Form */
         form { 
             max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; 
             background: var(--glass-bg); backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur));
-            padding: 40px; border-radius: 24px; border: 1px solid var(--glass-border); border-top: 1px solid var(--glass-highlight);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            padding: 40px; border-radius: 16px; border: 1px solid var(--glass-border); border-top: 1px solid var(--glass-highlight);
         }
         input, select, textarea { 
             width: 100%; padding: 16px 20px; 
-            background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255,255,255,0.1); 
-            border-radius: 12px; color: white; font-family: inherit; font-size: 1rem; transition: all 0.3s; 
+            background: rgba(0, 0, 0, 0.3); border: 1px solid var(--glass-border); 
+            border-radius: 8px; color: white; font-family: inherit; font-size: 1rem; transition: all 0.3s; 
         }
-        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); background: rgba(0,0,0,0.4); }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); background: rgba(0,0,0,0.5); }
         textarea { height: 160px; resize: vertical; }
 
-        footer { text-align: center; padding: 40px 0; border-top: 1px solid var(--glass-border); color: var(--text-muted); font-size: 0.9rem; background: rgba(3, 6, 13, 0.6); backdrop-filter: blur(10px); }
+        footer { text-align: center; padding: 40px 0; border-top: 1px solid var(--glass-border); color: var(--text-muted); font-size: 0.9rem; background: rgba(3, 6, 13, 0.4); }
 
-        /* --- ULTIMATE GLASS WIDGET --- */
+        /* --- LIGHTER GLASS AI WIDGET --- */
         #ai-widget-container { position: fixed; bottom: 30px; right: 30px; z-index: 9999; font-family: 'Inter', sans-serif; }
         
         #ai-widget-toggle { 
-            background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            background: rgba(10, 15, 30, 0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--glass-highlight); color: white; padding: 15px 25px; border-radius: 50px; 
-            font-weight: 600; font-size: 15px; cursor: pointer; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); 
+            font-weight: 600; font-size: 15px; cursor: pointer; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); 
             display: flex; align-items: center; gap: 10px; transition: all 0.3s; 
         }
-        #ai-widget-toggle:hover { transform: scale(1.05); background: rgba(255, 255, 255, 0.1); border-color: white; }
+        #ai-widget-toggle:hover { transform: scale(1.05); border-color: var(--primary); }
         
         #ai-chat-window { 
             width: 400px; height: 580px; 
-            background: rgba(10, 15, 30, 0.6); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px);
-            border: 1px solid var(--glass-highlight); border-top: 1px solid rgba(255, 255, 255, 0.4); border-left: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.6); 
+            background: rgba(10, 15, 30, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-highlight); border-top: 1px solid rgba(255, 255, 255, 0.2); 
+            border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); 
             display: flex; flex-direction: column; overflow: hidden; margin-bottom: 15px; 
             transform-origin: bottom right; animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; 
         }
         @keyframes popIn { 0% { opacity: 0; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1); } }
         
         #ai-chat-header { 
-            background: rgba(0, 0, 0, 0.2); padding: 20px; display: flex; justify-content: space-between; align-items: center; 
+            background: rgba(0, 0, 0, 0.3); padding: 20px; display: flex; justify-content: space-between; align-items: center; 
             border-bottom: 1px solid var(--glass-border); 
         }
         #ai-chat-header strong { display: flex; align-items: center; gap: 8px; font-size: 1.1rem; color: white; }
@@ -171,35 +152,30 @@
 
         #chat-box { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
         
-        /* Glass Chat Bubbles */
         .bot-msg { 
-            background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); 
-            padding: 14px 18px; border-radius: 0 15px 15px 15px; color: #e2e8f0; font-size: 0.95rem; align-self: flex-start; max-width: 85%; 
+            background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); 
+            padding: 14px 18px; border-radius: 0 12px 12px 12px; color: #e2e8f0; font-size: 0.95rem; align-self: flex-start; max-width: 85%; 
         }
         .user-msg { 
-            background: rgba(255, 255, 255, 0.15); border: 1px solid var(--glass-highlight); 
-            padding: 14px 18px; border-radius: 15px 0 15px 15px; color: white; font-size: 0.95rem; align-self: flex-end; max-width: 85%; 
+            background: rgba(255, 255, 255, 0.1); border: 1px solid var(--glass-highlight); 
+            padding: 14px 18px; border-radius: 12px 0 12px 12px; color: white; font-size: 0.95rem; align-self: flex-end; max-width: 85%; 
         }
         
         .typing-indicator { font-style: italic; color: var(--text-muted); font-size: 0.85rem; opacity: 0.8; animation: pulse 1.5s infinite; }
         @keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
 
-        #chat-input-area { padding: 15px; background: rgba(0,0,0,0.2); border-top: 1px solid var(--glass-border); display: flex; gap: 10px; }
-        #chat-input-area input { flex: 1; background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1); padding: 12px 15px; border-radius: 12px; color: white; font-size: 0.95rem; outline: none; transition: border-color 0.3s; }
-        #chat-input-area input:focus { border-color: var(--primary); background: rgba(0,0,0,0.5); }
-        #chat-input-area button { background: white; color: black; border: none; padding: 0 20px; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+        #chat-input-area { padding: 15px; background: rgba(0,0,0,0.3); border-top: 1px solid var(--glass-border); display: flex; gap: 10px; }
+        #chat-input-area input { flex: 1; background: rgba(0, 0, 0, 0.4); border: 1px solid var(--glass-border); padding: 12px 15px; border-radius: 8px; color: white; font-size: 0.95rem; outline: none; transition: border-color 0.3s; }
+        #chat-input-area input:focus { border-color: var(--primary); }
+        #chat-input-area button { background: white; color: black; border: none; padding: 0 20px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s; }
         #chat-input-area button:hover { background: var(--primary); }
         #chat-input-area button:disabled { background: rgba(255,255,255,0.1); color: #666; cursor: not-allowed; }
     </style>
 </head>
 <body>
 
-    <div class="aurora-container">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-    </div>
-    <div class="noise-overlay"></div>
+    <div class="ambient-base"></div>
+    <div id="tsparticles"></div>
 
     <header>
         <div class="container">
@@ -345,6 +321,44 @@
     </div>
 
     <script>
+        // --- AMBIENT INTERACTIVE PARTICLES CONFIG ---
+        // These are clean, glowing orbs with NO spiderweb lines that gently move away from the mouse.
+        tsParticles.load("tsparticles", {
+            fpsLimit: 60,
+            interactivity: {
+                events: {
+                    onHover: { enable: true, mode: "repulse" }, // Repulses from the mouse cursor
+                    resize: true
+                },
+                modes: {
+                    repulse: { distance: 120, duration: 0.4 } // How far they push away
+                }
+            },
+            particles: {
+                color: { value: ["#00f2fe", "#4facfe", "#8a2be2"] }, // Brand colors
+                links: { enable: false }, // NO CONNECTING LINES
+                move: {
+                    direction: "none",
+                    enable: true,
+                    outModes: { default: "out" },
+                    random: true,
+                    speed: 0.6, // Slow, elegant floating speed
+                    straight: false
+                },
+                number: { density: { enable: true, area: 800 }, value: 80 },
+                opacity: {
+                    value: { min: 0.1, max: 0.6 },
+                    animation: { enable: true, speed: 1, sync: false } // Gentle twinkling
+                },
+                shape: { type: "circle" },
+                size: {
+                    value: { min: 1, max: 3 },
+                    animation: { enable: true, speed: 2, sync: false }
+                }
+            },
+            detectRetina: true
+        });
+
         // --- SCROLL REVEAL LOGIC ---
         const reveals = document.querySelectorAll('.reveal');
         const revealOnScroll = () => {
@@ -424,7 +438,6 @@
                 
             } catch (err) {
                 thinkingDiv.className = "bot-msg";
-                // THE EXACT ERROR MESSAGE REQUESTED
                 thinkingDiv.innerText = "System Notification: Lucentra AI secure server is currently performing maintenance. Please try again later.";
                 console.error(err);
             } finally {
