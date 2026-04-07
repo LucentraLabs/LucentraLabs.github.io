@@ -151,5 +151,24 @@
         </div>
     </footer>
 
+    <script>
+async function askGemma() {
+  const response = await fetch("https://YOUR-NGROK-ID.ngrok-free.app/api/generate", {
+    method: "POST",
+    body: JSON.stringify({
+      model: "gemma4",
+      prompt: document.getElementById("user-input").value,
+      stream: false
+    })
+  });
+  const data = await response.json();
+  document.getElementById("chat-output").innerText = data.response;
+}
+</script>
+
+<input id="user-input" placeholder="Ask Gemma 4...">
+<button onclick="askGemma()">Send</button>
+<div id="chat-output"></div>
+
 </body>
 </html>
