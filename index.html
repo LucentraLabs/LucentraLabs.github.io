@@ -254,7 +254,7 @@
         }
     </style>
 
-    <script>
+        <script>
         // Toggle the visibility of the chat window
         function toggleChat() {
             const win = document.getElementById('ai-chat-window');
@@ -285,20 +285,19 @@
             box.appendChild(thinkingDiv);
 
             try {
-                // Change this line in your <script> section:
-                // Add "ngrok-skip-browser-warning" to your headers
-            const response = await fetch("https://eye-greetings-leeds-moses.trycloudflare.com/api/generate", {
-                method: "POST",
-                headers: { 
-                    "Content-Type": "application/json",
-                    "ngrok-skip-browser-warning": "true" // THIS LINE IS CRITICAL
-                },
-                body: JSON.stringify({
-                    model: "gemma4:e4b",
-                    prompt: text,
-                    stream: false
-                })
-            });
+                // Paste your paid ngrok URL here
+                const response = await fetch("https://accrescent-subconformably-jammie.ngrok-free.dev/api/generate", {
+                    method: "POST",
+                    headers: { 
+                        "Content-Type": "application/json" 
+                        // WARNING HEADER COMPLETELY REMOVED!
+                    },
+                    body: JSON.stringify({
+                        model: "gemma4:e4b",
+                        prompt: text,
+                        stream: false
+                    })
+                });
 
                 if (!response.ok) throw new Error("Server not responding");
 
